@@ -1,0 +1,14 @@
+<div class="container">
+  <h1>
+    welcome to {{title}}
+  </h1>
+  <div class= "row">
+    <div class ="col-xs-12">
+      <h2>Market</h2>
+      <ul class = "list-group">
+        <app-market-component *ngFor="let produit of produitList" [produitName]="produit.produitName" [produitPrix]="produit.produitPrix" [produitStatus]="produit.produitStatus"></app-market-component>
+        <app-premier-component></app-premier-component>
+      </ul>
+    </div>
+  </div>
+</div>

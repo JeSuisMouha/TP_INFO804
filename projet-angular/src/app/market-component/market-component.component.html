@@ -1,0 +1,16 @@
+<li class="list-group-item">
+<h5 [ngStyle] = "{color: getColor()}">
+    Produit : {{ produitName }} Prix : {{getPrix()}}$ Status: {{getStatus()}}  
+</h5>
+<input type="text" class="form-control" [(ngModel)]="produitName">
+<button class ="btn btn-success" (click) = "onValider()" >valider</button>
+<div *ngIf = "fromAchat()" >
+    <h5>numeros de carte:</h5>
+    <input type="text" class="form-control" [(ngModel)] = "numeroCarte">
+    <h5>numeros:</h5>
+    <input type="password" class="form-control" [(ngModel)] = "codeCarte">
+    <button class ="btn btn-success"  (click) = "onSubmit()" >submit</button>
+    <h6 *ngIf="getValidation();else refutAlerte">CARTE VALIDE</h6>
+    <ng-template #refutAlerte *ngIf="getValidation() == false"><h6>CARTE N'EXISTE PAS</h6></ng-template>
+</div>
+</li>

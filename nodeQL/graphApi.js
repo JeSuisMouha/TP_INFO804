@@ -1,15 +1,18 @@
 listProduit = [
     {
         produitName : "bouteil d'eau" ,
-        produitPrix : 1
+        produitPrix : 1,
+        produitStatus : "non acheté"
     },
     {
         produitName : "chocolat" ,
-        produitPrix : 2.5
+        produitPrix : 2.5,
+        produitStatus : "non acheté"
     },
     {
         produitName : "gateaux" ,
-        produitPrix : 4
+        produitPrix : 4,
+        produitStatus : "non acheté"
     }
 ]
 
@@ -39,6 +42,7 @@ var schema = buildSchema(`
   { 
       produitName : String
       produitPrix : Float
+      produitStatus : String
   }
 `);
  
