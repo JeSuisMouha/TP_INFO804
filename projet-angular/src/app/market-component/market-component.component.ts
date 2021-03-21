@@ -10,8 +10,8 @@ import { Observable, throwError} from 'rxjs';
 })
 export class MarketComponentComponent implements OnInit {
  
-  @Input() produitName: string;
-  @Input() produitPrix: number;
+  @Input() produitName: string |undefined;
+  @Input() produitPrix: number |undefined;
   color ="gray"
   tentativeAchat = false
   achatValider = undefined
@@ -19,7 +19,7 @@ export class MarketComponentComponent implements OnInit {
   numeroCarte = ""
   codeCarte = ""
   posts: Observable<any>|undefined
-  urlAPIrest = "http://localhost:3000";
+  urlAPIrest = "https://apirest802.azurewebsites.net";
   
 
   constructor(private http: HttpClient) {

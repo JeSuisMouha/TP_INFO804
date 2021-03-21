@@ -18,10 +18,12 @@ var listCarte = [
         "codeCarte":"234"
     }
     ];
+
 const express = require("express");
 const server = express();
 const http = require("http").Server(server);
-http.listen(3000,()=>{console.log("connecté")});
+const port = process.env.PORT || 3000;
+server.use(express.static('public'));
 server.get("/",(requete,res) =>{res.send("ui")});
 server.get("/verifCarte",(requete,res)=>{
     
@@ -43,4 +45,11 @@ server.get("/verifCarte",(requete,res)=>{
     res.header("Access-Control-Allow-Methods", "GET, PUT, POST");
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     res.json(resultat);
-});
+    
+}
+
+);
+
+http.listen(port,()=>{console.log("connecté")});
+
+

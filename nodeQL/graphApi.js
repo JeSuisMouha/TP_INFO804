@@ -1,3 +1,11 @@
+const express = require('express');
+const server = express();
+const http = require('http').Server(server);
+const port = process.env.PORT || 3000;
+const { graphqlHTTP } = require('express-graphql');
+const { buildSchema } = require('graphql');
+const cors = require("cors");
+
 listProduit = [
     {
         produitName : "bouteil d'eau" ,
@@ -14,19 +22,11 @@ listProduit = [
         produitPrix : 4,
         produitStatus : "non acheté"
     }
-]
-
-const express = require('express');
-const server = express();
-const http = require('http').Server(server);
-const port = process.env.PORT || 3000;
-const { graphqlHTTP } = require('express-graphql');
-const { buildSchema } = require('graphql');
-const cors = require("cors");
-
+];
 var corsOptions = {
     origin: '*'
 };
+
 server.use(express.static('public'));
 
 server.use('/graphql',cors(corsOptions));
@@ -59,6 +59,10 @@ server.use('/graphql', graphqlHTTP({
   rootValue: root,
   graphiql: true,
 }));
-server.listen(4100);
-console.log('Running a GraphQL API server at http://localhost:4100/graphql');
 
+
+
+http.listen(port,() => {
+    console.log('listening on 3000');
+  });
+  
